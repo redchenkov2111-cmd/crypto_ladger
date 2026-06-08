@@ -22,6 +22,7 @@ def create_transaction(transaction: models.TransactionCreate):
 @app.get("/transactions",summary="Получение всех транзакций",response_description="Список всех транзакций")
 def get_transactions():
     ans = crud.get_transactions()
+    ans.update({"message":"Блок успешно создан"})
     return ans
 
 @app.post("/blocks/",summary="Создание блока",response_description="Детали блока")
