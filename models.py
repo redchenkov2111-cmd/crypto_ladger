@@ -19,7 +19,7 @@ class TransactionOut(TransactionBase):
 # Модель для блока
 class BlockBase(BaseModel):
     previous_hash: str 
-    transactions_count: int 
+    transactions_id: list[int]
     miner: str 
 
 class BlockCreate(BlockBase):
