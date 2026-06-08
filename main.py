@@ -5,6 +5,11 @@ import uvicorn
 # Импортируем наши модули (пока будут пустыми, но мы их заполним)
 import models
 import crud # Будет использоваться позже
+import dotenv
+import os
+
+dotenv.load_dotenv()
+DEV = os.environ.get("DEV")
 
 app = FastAPI(title="CryptoLedger API")
 
@@ -30,4 +35,5 @@ def blocks():
     pass
 
 if __name__ == "__main__":
-    uvicorn.run(app, host="0.0.0.0", port = 8000)
+    if not DEV:
+        uvicorn.run(app, host="0.0.0.0", port = 8000)
